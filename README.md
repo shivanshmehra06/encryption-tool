@@ -1,53 +1,69 @@
-# CipherSafe - Encryption Tool
+🔐 AES Encryption/Decryption Tool (Web-Based)
+This is a simple, elegant web tool for AES-based encryption and decryption of text messages, built using pure JavaScript and the crypto-js library. It runs entirely in the browser and requires no backend or server.
 
-![CipherSafe Screenshot](./assets/screenshot.png)
+<!-- Optional: Add a screenshot of your tool -->
 
-CipherSafe is a client-side encryption/decryption tool that works entirely in your browser. Your data never leaves your device, ensuring maximum privacy.
+🚀 Features
+🔐 AES-256 Encryption using crypto-js
 
-## Features
+🌙 Dark mode UI with smooth UX
 
-- **Secure Encryption**: Uses Web Crypto API for AES encryption (when available)
-- **Multiple Algorithms**: Supports AES, DES, and XOR encryption methods
-- **Local Storage**: Keeps history of your encrypted/decrypted messages
-- **No Server Needed**: Works entirely client-side
-- **Responsive Design**: Works on desktop and mobile devices
+⚡️ Works 100% offline (static HTML + JS)
 
-## How to Use
+🧠 No dependencies except crypto-js CDN
 
-1. **Encrypt Text**:
-   - Enter your text in the "Text to Encrypt" field
-   - Provide a strong encryption key
-   - Select an encryption method
-   - Click "Encrypt"
+✅ Simple and secure message sharing
 
-2. **Decrypt Text**:
-   - Paste your encrypted text in the "Text to Decrypt" field
-   - Enter the same encryption key used to encrypt
-   - Select the same encryption method
-   - Click "Decrypt"
+📁 Project Structure
+rust
+Copy
+Edit
+📂 encryption-tool/
+├── index.html        ← Main web page
+├── style.css         ← Dark mode styling
+├── main.js           ← JS logic for encryption/decryption
+└── README.md         ← You're reading it!
+🛠️ How It Works
+Enter a message and a secret key.
 
-3. **History**:
-   - All operations are saved in your browser's local storage
-   - You can load, delete, export, or import history items
+Click Encrypt to turn it into a secure ciphertext.
 
-## Installation
+Copy and share the ciphertext.
 
-To host this on GitHub Pages:
+To decrypt, paste the encrypted text back in and use the same secret key.
 
-1. Fork this repository
-2. Go to Settings > Pages
-3. Select the main branch as the source
-4. Click Save
+Note: Without the correct key, decryption will fail silently to protect your data.
 
-The page will be available at `https://yourusername.github.io/encryption-tool`
+📦 Hosting
+This project is fully static and can be hosted using:
 
-## Security Notes
+GitHub Pages
 
-- **AES encryption** uses the Web Crypto API when available (modern browsers)
-- **DES and XOR** are provided for compatibility but are less secure
-- All data is stored only in your browser's local storage
-- Encryption keys are never stored or transmitted
+Netlify / Vercel / Surge
 
-## License
+Local file (just open index.html in a browser)
 
-MIT License - Free to use and modify
+To host on GitHub Pages:
+
+Push the repo to GitHub.
+
+Go to Settings → Pages.
+
+Select your main or master branch as source.
+
+Your site will be available at:
+https://your-username.github.io/encryption-tool/
+
+🔒 Tech Stack
+HTML5
+CSS3
+JavaScript (ES6)
+crypto-js
+
+
+
+🙌 Credits
+Made with 💙 by Shivansh Mehra
+Licensed under MIT
+
+
