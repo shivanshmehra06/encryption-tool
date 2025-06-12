@@ -1,121 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CipherSafe - Encryption Tool</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="assets/favicon.ico">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Encrypt & Decrypt</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.21.3/full/pyodide.js"></script>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="logo">
-                <img src="assets/icon.png" alt="CipherSafe Logo">
-                <h1>CipherSafe</h1>
-            </div>
-            <p class="subtitle">Secure client-side encryption tool with local storage</p>
-        </header>
-        
-        <div class="main-content">
-            <div class="panel encrypt-panel">
-                <h2><i class="icon lock"></i> Encrypt Text</h2>
-                <div id="encrypt-alert" class="alert"></div>
-                <div class="form-group">
-                    <label for="encrypt-text">Text to Encrypt</label>
-                    <textarea id="encrypt-text" placeholder="Enter your secret message here..."></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="encrypt-key">Encryption Key</label>
-                    <div class="password-input">
-                        <input type="password" id="encrypt-key" placeholder="Enter a strong password">
-                        <button class="toggle-password" data-target="encrypt-key">👁️</button>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="encrypt-method">Encryption Method</label>
-                    <select id="encrypt-method">
-                        <option value="aes">AES (Recommended)</option>
-                        <option value="des">DES</option>
-                        <option value="xor">XOR (Basic)</option>
-                    </select>
-                </div>
-                <div class="btn-group">
-                    <button id="encrypt-btn" class="btn btn-primary">
-                        <i class="icon encrypt"></i> Encrypt
-                    </button>
-                    <button id="clear-encrypt" class="btn btn-danger">
-                        <i class="icon clear"></i> Clear
-                    </button>
-                    <button id="copy-encrypt" class="btn btn-secondary">
-                        <i class="icon copy"></i> Copy
-                    </button>
-                </div>
-            </div>
-            
-            <div class="panel decrypt-panel">
-                <h2><i class="icon unlock"></i> Decrypt Text</h2>
-                <div id="decrypt-alert" class="alert"></div>
-                <div class="form-group">
-                    <label for="decrypt-text">Text to Decrypt</label>
-                    <textarea id="decrypt-text" placeholder="Enter encrypted text here..."></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="decrypt-key">Decryption Key</label>
-                    <div class="password-input">
-                        <input type="password" id="decrypt-key" placeholder="Enter the password used for encryption">
-                        <button class="toggle-password" data-target="decrypt-key">👁️</button>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="decrypt-method">Decryption Method</label>
-                    <select id="decrypt-method">
-                        <option value="aes">AES (Recommended)</option>
-                        <option value="des">DES</option>
-                        <option value="xor">XOR (Basic)</option>
-                    </select>
-                </div>
-                <div class="btn-group">
-                    <button id="decrypt-btn" class="btn btn-secondary">
-                        <i class="icon decrypt"></i> Decrypt
-                    </button>
-                    <button id="clear-decrypt" class="btn btn-danger">
-                        <i class="icon clear"></i> Clear
-                    </button>
-                    <button id="copy-decrypt" class="btn btn-secondary">
-                        <i class="icon copy"></i> Copy
-                    </button>
-                </div>
-            </div>
-            
-            <div class="panel history-panel">
-                <h2><i class="icon history"></i> History</h2>
-                <div class="history-controls">
-                    <button id="clear-history" class="btn btn-danger">
-                        <i class="icon clear"></i> Clear All
-                    </button>
-                    <button id="export-history" class="btn btn-secondary">
-                        <i class="icon export"></i> Export
-                    </button>
-                    <button id="import-history" class="btn btn-secondary">
-                        <i class="icon import"></i> Import
-                    </button>
-                    <input type="file" id="history-file" accept=".json" style="display: none;">
-                </div>
-                <div id="history-list"></div>
-            </div>
-        </div>
-        
-        <footer>
-            <p>CipherSafe v1.0 | Works entirely in your browser | Data never leaves your device</p>
-            <p class="github-link">
-                <a href="https://github.com/yourusername/encryption-tool" target="_blank">
-                    <i class="icon github"></i> View on GitHub
-                </a>
-            </p>
-        </footer>
+  <div class="container">
+    <h1>🔐 Encrypt / Decrypt Tool</h1>
+    
+    <textarea id="message" placeholder="Enter your message here..."></textarea>
+    <input type="password" id="key" placeholder="Enter secret key" />
+
+    <div class="buttons">
+      <button onclick="encryptMessage()">Encrypt</button>
+      <button onclick="decryptMessage()">Decrypt</button>
+      <button onclick="saveEncrypted()">Save</button>
+      <button onclick="loadEncrypted()">Load</button>
     </div>
 
-    <script src="script.js"></script>
+    <textarea id="output" placeholder="Result will appear here..." readonly></textarea>
+  </div>
+
+  <script type="module" src="main.js"></script>
 </body>
 </html>
+
