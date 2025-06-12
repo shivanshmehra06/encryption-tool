@@ -1,33 +1,23 @@
 function encryptMessage() {
-  const message = document.getElementById("message").value;
+  const msg = document.getElementById("message").value.trim();
   const key = document.getElementById("key").value;
+  if (!msg || !key) return alert("Enter both message and key!");
 
-  if (!message || !key) {
-    alert("Please provide both a message and key.");
-    return;
-  }
-
-  const ciphertext = CryptoJS.AES.encrypt(message, key).toString();
-  document.getElementById("output").value = ciphertext;
+  const cipher = CryptoJS.AES.encrypt(msg, key).toString();
+  document.getElementById("output").value = cipher;
 }
 
 function decryptMessage() {
-  const ciphertext = document.getElementById("message").value;
-  const key = document.getElementById("key").value;
-
-  if (!ciphertext || !key) {
-    alert("Please provide both encrypted message and key.");
-    return;
-  }
+  const cipher = document.getElementById("message").value.trim();
+  const key    = document.getElementById("key").value;
+  if (!cipher || !key) return alert("Enter both encrypted text and key!");
 
   try {
-    const bytes = CryptoJS.AES.decrypt(ciphertext, key);
-    const decrypted = bytes.toString(CryptoJS.enc.Utf8);
-
-    if (!decrypted) throw new Error("Invalid decryption");
-
-    document.getElementById("output").value = decrypted;
-  } catch (e) {
-    alert("Failed to decrypt. Check your key or message.");
+    const bytes = CryptoJS.AES.decrypt(cipher, key);
+    const plain = bytes.toString(CryptoJS.enc.Utf8);
+    if (!plain) throw new Error();
+    document.getElementById("output").value = plain;
+  } catch {
+    alert("Decryption failed. Wrong key or corrupted text.");
   }
 }
