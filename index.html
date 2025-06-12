@@ -2,22 +2,28 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Encrypt/Decrypt Tool</title>
-  <link rel="stylesheet" href="style.css"/>
+  <title>Encrypt / Decrypt Tool</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
-    <h1>🔐 Encrypt / Decrypt Tool</h1>
-    <textarea id="message" placeholder="Enter your message here..."></textarea>
-    <input type="password" id="key" placeholder="Enter secret key"/>
+    <h1>🔐 Encrypt / Decrypt</h1>
+
+    <textarea id="message" placeholder="Enter message…"></textarea>
+    <input type="password" id="key" placeholder="Enter secret key" />
+
     <div class="buttons">
       <button onclick="encryptMessage()">Encrypt</button>
       <button onclick="decryptMessage()">Decrypt</button>
     </div>
-    <textarea id="output" placeholder="Output will appear here..." readonly></textarea>
+
+    <textarea id="output" placeholder="Output…" readonly></textarea>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/crypto-js@4.1.1/crypto-js.min.js"></script>
+
+  <!-- AES library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+  <!-- Your logic -->
   <script src="main.js"></script>
 </body>
 </html>
