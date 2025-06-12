@@ -3,28 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Encrypt & Decrypt</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://cdn.jsdelivr.net/pyodide/v0.21.3/full/pyodide.js"></script>
+  <title>Encrypt/Decrypt Tool</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
   <div class="container">
     <h1>🔐 Encrypt / Decrypt Tool</h1>
-    
     <textarea id="message" placeholder="Enter your message here..."></textarea>
-    <input type="password" id="key" placeholder="Enter secret key" />
-
+    <input type="password" id="key" placeholder="Enter secret key"/>
     <div class="buttons">
       <button onclick="encryptMessage()">Encrypt</button>
       <button onclick="decryptMessage()">Decrypt</button>
-      <button onclick="saveEncrypted()">Save</button>
-      <button onclick="loadEncrypted()">Load</button>
     </div>
-
-    <textarea id="output" placeholder="Result will appear here..." readonly></textarea>
+    <textarea id="output" placeholder="Output will appear here..." readonly></textarea>
   </div>
-
-  <script type="module" src="main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/crypto-js@4.1.1/crypto-js.min.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>
-
